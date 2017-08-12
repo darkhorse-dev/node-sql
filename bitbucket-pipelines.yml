@@ -1,0 +1,13 @@
+# This is a sample build configuration for Javascript.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Dockerhub as your build environment.
+image: spittet/node-mysql
+
+pipelines:
+  default:
+    - step:
+        script: # Modify the commands below to build your repository.
+          - /etc/init.d/mysql start # You'll need to start the MySQL service as part of your pipeline
+          - npm install mysqljs/mysql
+          - node test.js
